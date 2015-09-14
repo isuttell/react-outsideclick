@@ -10,14 +10,15 @@
  */
 
 module.exports = function(grunt) {
-  var packageBanner = require('package-banner');
+  var PackageBanner = require('package-banner');
   var webpack = require('webpack');
   var path = require('path');
 
   var pkg = grunt.file.readJSON('package.json');
-  var banner = packageBanner(pkg, {
-   wrap: false
-  });
+  var banner = new PackageBanner({
+    pkg: pkg,
+    wrap: false
+  }).build();
 
   grunt.config.set('webpack', {
 
