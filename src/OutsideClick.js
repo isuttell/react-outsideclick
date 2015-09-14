@@ -1,13 +1,19 @@
 import React from 'react';
 
 export default class OutsideClick extends React.Component {
+  /**
+   * @class OutsideClick keeps track of clicks outside of the component. This is used for Dialogs, select boxes, etc.
+   * @author Isaac Suttell <isaac@isaacsuttell.com>
+   */
   constructor(props) {
     super(props)
+
+    // Ensure the right context
     this.handleBodyClick = this.handleBodyClick.bind(this);
   }
 
   /**
-   * Bind to the body so we can check for clicks outside of the Selector
+   * Bind to the body so we can check for clicks outside of the component
    */
   componentDidMount() {
     document.body.addEventListener('click', this.handleBodyClick);
@@ -21,13 +27,13 @@ export default class OutsideClick extends React.Component {
   }
 
   /**
-   * Handle clicks outside of the Selector
-   *
+   * Handle clicks outside of the component. Goes up the tree until it finds itself or runs out of parents.
    * @param     {Event}    event
    */
   handleBodyClick(event) {
     var source = event.target;
     var el = React.findDOMNode(this);
+
     // Search up the tree for the component node
     while (source.parentNode) {
       if (source === el) {
@@ -36,11 +42,12 @@ export default class OutsideClick extends React.Component {
         source = source.parentNode;
       }
     }
+
     this.props.onClick(event);
   }
 
   /**
-   * Render
+   * Render the react component
    * @return    {React}
    */
   render() {
@@ -52,7 +59,6 @@ export default class OutsideClick extends React.Component {
       </this.props.tag>
     );
   }
-
 }
 
 /**
@@ -67,11 +73,12 @@ OutsideClick.defaultProps = {
 };
 
 /**
- * Validate the prop types
+ * Validate the prop types when not in production
  * @static
  * @type    {Object}
  */
 OutsideClick.propTypes = {
+  tag: React.PropTypes.string,
   className: React.PropTypes.string,
   onClick: React.PropTypes.func
 };

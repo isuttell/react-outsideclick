@@ -82,10 +82,17 @@ module.exports =
 	var OutsideClick = (function (_React$Component) {
 	  _inherits(OutsideClick, _React$Component);
 
+	  /**
+	   * @class OutsideClick keeps track of clicks outside of the component. This is used for Dialogs, select boxes, etc.
+	   * @author Isaac Suttell <isaac@isaacsuttell.com>
+	   */
+
 	  function OutsideClick(props) {
 	    _classCallCheck(this, OutsideClick);
 
 	    _get(Object.getPrototypeOf(OutsideClick.prototype), 'constructor', this).call(this, props);
+
+	    // Ensure the right context
 	    this.handleBodyClick = this.handleBodyClick.bind(this);
 	  }
 
@@ -96,7 +103,7 @@ module.exports =
 	   */
 
 	  /**
-	   * Bind to the body so we can check for clicks outside of the Selector
+	   * Bind to the body so we can check for clicks outside of the component
 	   */
 
 	  _createClass(OutsideClick, [{
@@ -115,8 +122,7 @@ module.exports =
 	    }
 
 	    /**
-	     * Handle clicks outside of the Selector
-	     *
+	     * Handle clicks outside of the component. Goes up the tree until it finds itself or runs out of parents.
 	     * @param     {Event}    event
 	     */
 	  }, {
@@ -124,6 +130,7 @@ module.exports =
 	    value: function handleBodyClick(event) {
 	      var source = event.target;
 	      var el = _react2['default'].findDOMNode(this);
+
 	      // Search up the tree for the component node
 	      while (source.parentNode) {
 	        if (source === el) {
@@ -132,11 +139,12 @@ module.exports =
 	          source = source.parentNode;
 	        }
 	      }
+
 	      this.props.onClick(event);
 	    }
 
 	    /**
-	     * Render
+	     * Render the react component
 	     * @return    {React}
 	     */
 	  }, {
@@ -163,11 +171,12 @@ module.exports =
 	};
 
 	/**
-	 * Validate the prop types
+	 * Validate the prop types when not in production
 	 * @static
 	 * @type    {Object}
 	 */
 	OutsideClick.propTypes = {
+	  tag: _react2['default'].PropTypes.string,
 	  className: _react2['default'].PropTypes.string,
 	  onClick: _react2['default'].PropTypes.func
 	};

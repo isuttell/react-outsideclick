@@ -1,6 +1,7 @@
 # react-outsideclick
+Captures clicks outside of a react component. Exports a commonjs module that can be used with [webpack](http://webpack.github.io/) or browserify. Source is in ES6 but a [babelify](https://babeljs.io/) ES5 version can be found in the `dist/` directory.
 
-Captures clicks outside of a react component. Exports a commonjs module that can be used with [webpack](http://webpack.github.io/) or browserify. Source is in ES6 but a [babelify](https://babeljs.io/) ES5 version can be found in the `dist/` directory
+[![Build Status](http://img.shields.io/travis/isuttell/react-outsideclick/master.svg?style=flat)](https://travis-ci.org/isuttell/react-outsideclick)
 
 ## Usage with Babel/Webpack
 
@@ -11,11 +12,12 @@ import OutsideClick from 'react-outsideclick';
 export default class Dialog extends React.Component {
   render() {
     return (
-      <div className='dialog'>
+      <div className='dialog--overlay'>
         /**
          * Any clicks within this component are ignored. Only clicks outside of it are triggered.
          */
         <OutsideClick
+          tag='div'
           className='dialog--container'
           onClick={this.props.onCancel}
         >
