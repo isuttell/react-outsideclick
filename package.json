@@ -6,7 +6,7 @@
   "scripts": {
     "test": "grunt lint && jest src/ --verbose --coverage",
     "build": "npm test && grunt build",
-    "coverage": "cat coverage/lcov.info | CODACY_PROJECT_TOKEN=6525ee638650493f9dd6597be61a9dc7 ./node_modules/.bin/codacy-coverage"
+    "coverage": "cat coverage/lcov.info | CODACY_PROJECT_TOKEN=6525ee638650493f9dd6597be61a9dc7 ./node_modules/.bin/codacy-coverage && cat coverage/lcov.info | CODECLIMATE_REPO_TOKEN=da1af7666d6cda9a2262599105d14fc0a4f93333e30d963586e9766dd3ffc130 ./node_modules/codeclimate-test-reporter/bin/codeclimate.js"
   },
   "repository": {
     "type": "git",
@@ -27,6 +27,7 @@
     "babel-jest": "^5.3.0",
     "babel-loader": "^5.3.2",
     "codacy-coverage": "^1.1.3",
+    "codeclimate-test-reporter": "^0.1.1",
     "eslint": "^1.2.1",
     "eslint-loader": "^1.0.0",
     "eslint-plugin-react": "^3.2.3",
