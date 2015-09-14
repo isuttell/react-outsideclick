@@ -5,7 +5,8 @@
   "main": "src/OutsideClick.js",
   "scripts": {
     "test": "grunt lint && jest src/ --verbose --coverage",
-    "build": "npm test && grunt build"
+    "build": "npm test && grunt build",
+    "coverage" : "cat coverage/lcov.info | CODACY_PROJECT_TOKEN=6525ee638650493f9dd6597be61a9dc7 ./node_modules/.bin/codacy-coverage"
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,7 @@
     "babel-eslint": "^4.1.2",
     "babel-jest": "^5.3.0",
     "babel-loader": "^5.3.2",
+    "codacy-coverage": "^1.1.3",
     "eslint": "^1.2.1",
     "eslint-loader": "^1.0.0",
     "eslint-plugin-react": "^3.2.3",
