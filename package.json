@@ -4,7 +4,7 @@
   "description": "React component to detect clicks outside of its children",
   "main": "src/OutsideClick.js",
   "scripts": {
-    "test": "grunt lint && jest src/ --verbose --coverage",
+    "test": "jest src/ --verbose --coverage",
     "build": "npm test && grunt build",
     "coverage": "cat coverage/lcov.info | CODACY_PROJECT_TOKEN=6525ee638650493f9dd6597be61a9dc7 ./node_modules/.bin/codacy-coverage && cat coverage/lcov.info | CODECLIMATE_REPO_TOKEN=da1af7666d6cda9a2262599105d14fc0a4f93333e30d963586e9766dd3ffc130 ./node_modules/codeclimate-test-reporter/bin/codeclimate.js"
   },
