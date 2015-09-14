@@ -1,10 +1,12 @@
 # react-outsideclick
-Captures clicks outside of a react component. Exports a commonjs module that can be used with [webpack](http://webpack.github.io/) or browserify. Source is in ES6 but a [babelify](https://babeljs.io/) ES5 version can be found in the `dist/` directory.
+Captures clicks outside of a [React](http://facebook.github.io/react/) component. Exports a commonjs module that can be used with [webpack](http://webpack.github.io/) or [browserify](http://browserify.org/). Source is in ES6 and is compiled down to ES5 using [Babel](https://babeljs.io/).
 
 [![Build Status](http://img.shields.io/travis/isuttell/react-outsideclick/master.svg?style=flat)](https://travis-ci.org/isuttell/react-outsideclick)
 
-## Usage with Babel/Webpack
+## Usage
 
+### With Babel (Recommended)
+The component is written using ES6/JSX therefore Babel is required to directly use it. The below example is based on using [webpack](http://webpack.github.io/) and [babel-loader](https://github.com/babel/babel-loader).
 ```js
 import React from 'react';
 import OutsideClick from 'react-outsideclick';
@@ -30,6 +32,35 @@ export default class Dialog extends React.Component {
   }
 }
 ```
+
+### Without Babel
+A version compiled down to es5 can be found in the `es5/` folder. This can be directly required by another module using webpack or browserify.
+
+```js
+var React = require('react');
+var OutsideClick = require('react-outsideclick/es5');
+
+var Dialog = React.createClass({
+  render: function() {
+    return (
+      React.createElement('div', {className: 'dialog--overlay'},
+        React.createElement(OutsideClick, {
+          onClick: this.props.onCancel
+        },
+          React.createElement('div', {className: 'dialog--body'},
+            "Hello World"
+          )
+        )
+      )
+    );
+  }
+});
+```
+
+## Tests
+
+1. `npm install`
+2. `npm test`
 
 ## License
 The MIT License (MIT)

@@ -29,7 +29,7 @@ module.exports = function(grunt) {
 
       // Where to output
       output: {
-        path: './dist',
+        path: './es5',
         filename: '[name].js',
         libraryTarget: 'commonjs2'
       },
@@ -92,7 +92,7 @@ module.exports = function(grunt) {
       plugins: [
         new webpack.optimize.OccurenceOrderPlugin(true),
         // new webpack.EnvironmentPlugin(['NODE_ENV']),
-        new webpack.optimize.UglifyJsPlugin(),
+        new webpack.optimize.UglifyJsPlugin()
         // new webpack.BannerPlugin(banner)
       ]
     },

@@ -1,0 +1,6 @@
+{
+  "name" : "react-outsideclick",
+  "description": "ES5 Version of OutsideClick",
+  "author" : "Isaac Suttell <isaac@isaacsuttell.com>",
+  "main" : "./OutsideClick.js"
+}
