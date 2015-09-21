@@ -6,7 +6,7 @@ export default class OutsideClick extends React.Component {
    * @author Isaac Suttell <isaac@isaacsuttell.com>
    */
   constructor(props) {
-    super(props)
+    super(props);
 
     // Ensure the right context
     this.handleBodyClick = this.handleBodyClick.bind(this);
@@ -31,8 +31,8 @@ export default class OutsideClick extends React.Component {
    * @param     {Event}    event
    */
   handleBodyClick(event) {
-    var source = event.target;
-    var el = React.findDOMNode(this);
+    let source = event.target;
+    let el = React.findDOMNode(this);
 
     // Search up the tree for the component node
     while (source.parentNode) {
@@ -53,8 +53,7 @@ export default class OutsideClick extends React.Component {
   render() {
     return (
       <this.props.tag
-        className={this.props.className}
-      >
+        className={this.props.className} >
         {this.props.children}
       </this.props.tag>
     );
