@@ -13,18 +13,45 @@ export default class OutsideClick extends React.Component {
     this.handleBodyClick = this.handleBodyClick.bind(this);
   }
 
+  getBody() {
+    let source = ReactDOM.findDOMNode(this);
+    while (source.parentNode) {
+      if (source.parentNode) {
+        source = source.parentNode;
+      } else {
+        break;
+      }
+    }
+    return source.body;
+  }
+
   /**
    * Bind to the body so we can check for clicks outside of the component
    */
   componentDidMount() {
-    document.body.addEventListener('click', this.handleBodyClick);
+    let el = this.getBody();
+
+    if (this.props.onClick) {
+      el.addEventListener('click', this.handleBodyClick);
+    }
+
+    if (this.props.onMouseDown) {
+      el.addEventListener('mousedown', this.handleBodyClick);
+    }
+
+    if (this.props.onMouseUp) {
+      el.addEventListener('mouseup', this.handleBodyClick);
+    }
   }
 
   /**
    * Clean up
    */
   componentWillUnmount() {
-    document.body.removeEventListener('click', this.handleBodyClick);
+    let el = this.getBody();
+    el.removeEventListener('click', this.handleBodyClick);
+    el.removeEventListener('mousedown', this.handleBodyClick);
+    el.removeEventListener('mouseup', this.handleBodyClick);
   }
 
   /**
@@ -44,7 +71,17 @@ export default class OutsideClick extends React.Component {
       }
     }
 
-    this.props.onClick(event);
+    if (this.props.onMouseDown) {
+      this.props.onMouseDown(event);
+    }
+
+    if (this.props.onClick) {
+      this.props.onClick(event);
+    }
+
+    if (this.props.onMouseUp) {
+      this.props.onMouseUp(event);
+    }
   }
 
   /**
@@ -68,8 +105,7 @@ export default class OutsideClick extends React.Component {
  */
 OutsideClick.defaultProps = {
   tag: 'div',
-  className: '',
-  onClick: function() {}
+  className: ''
 };
 
 /**
@@ -80,5 +116,7 @@ OutsideClick.defaultProps = {
 OutsideClick.propTypes = {
   tag: React.PropTypes.string,
   className: React.PropTypes.string,
-  onClick: React.PropTypes.func
+  onClick: React.PropTypes.func,
+  onMouseDown: React.PropTypes.func,
+  onMouseUp: React.PropTypes.func
 };
