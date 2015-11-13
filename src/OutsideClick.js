@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 export default class OutsideClick extends React.Component {
   /**
@@ -32,7 +33,7 @@ export default class OutsideClick extends React.Component {
    */
   handleBodyClick(event) {
     let source = event.target;
-    let el = React.findDOMNode(this);
+    let el = ReactDOM.findDOMNode(this);
 
     // Search up the tree for the component node
     while (source.parentNode) {
