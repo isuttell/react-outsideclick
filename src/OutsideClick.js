@@ -35,6 +35,10 @@ export default class OutsideClick extends React.Component {
       el.addEventListener('click', this.handleBodyClick);
     }
 
+    if (this.props.onContextMenu) {
+      el.addEventListener('contextmenu', this.handleBodyClick);
+    }
+
     if (this.props.onMouseDown) {
       el.addEventListener('mousedown', this.handleBodyClick);
     }
@@ -50,6 +54,7 @@ export default class OutsideClick extends React.Component {
   componentWillUnmount() {
     let el = this.getBody();
     el.removeEventListener('click', this.handleBodyClick);
+    el.removeEventListener('contextmenu', this.handleBodyClick);
     el.removeEventListener('mousedown', this.handleBodyClick);
     el.removeEventListener('mouseup', this.handleBodyClick);
   }
