@@ -1,9 +1,9 @@
 # react-outsideclick
 Captures clicks outside of a [React](http://facebook.github.io/react/) component. Exports a commonjs module that can be used with [webpack](http://webpack.github.io/) or [browserify](http://browserify.org/). Source is in ES6 and is compiled down to ES5 using [Babel](https://babeljs.io/).
 
-[![Build Status](http://img.shields.io/travis/isuttell/react-outsideclick/master.svg?style=flat)](https://travis-ci.org/isuttell/react-outsideclick)
-[![Code Quality](https://img.shields.io/codeclimate/github/isuttell/react-outsideclick.svg?style=flat)](https://codeclimate.com/github/isuttell/react-outsideclick)
-[![Code Coverage](https://img.shields.io/codeclimate/coverage/github/isuttell/react-outsideclick.svg?style=flat)](https://codeclimate.com/github/isuttell/react-outsideclick)
+[![Build Status](http://img.shields.io/travis/ship-components/react-outsideclick/master.svg?style=flat)](https://travis-ci.org/isuttell/react-outsideclick)
+[![Code Quality](https://img.shields.io/codeclimate/github/ship-components/react-outsideclick.svg?style=flat)](https://codeclimate.com/github/isuttell/react-outsideclick)
+[![Code Coverage](https://img.shields.io/codeclimate/coverage/github/ship-components/react-outsideclick.svg?style=flat)](https://codeclimate.com/github/isuttell/react-outsideclick)
 
 ## Usage
 
