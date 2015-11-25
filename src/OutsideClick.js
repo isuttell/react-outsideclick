@@ -17,22 +17,20 @@ export default class OutsideClick extends React.Component {
    * Bind to the body so we can check for clicks outside of the component
    */
   componentDidMount() {
-    let el = this.getBody();
-
     if (this.props.onClick) {
-      el.addEventListener('click', this.handleBodyClick);
+      document.body.addEventListener('click', this.handleBodyClick);
     }
 
     if (this.props.onContextMenu) {
-      el.addEventListener('contextmenu', this.handleBodyClick);
+      document.body.addEventListener('contextmenu', this.handleBodyClick);
     }
 
     if (this.props.onMouseDown) {
-      el.addEventListener('mousedown', this.handleBodyClick);
+      document.body.addEventListener('mousedown', this.handleBodyClick);
     }
 
     if (this.props.onMouseUp) {
-      el.addEventListener('mouseup', this.handleBodyClick);
+      document.body.addEventListener('mouseup', this.handleBodyClick);
     }
   }
 
@@ -40,23 +38,10 @@ export default class OutsideClick extends React.Component {
    * Clean up
    */
   componentWillUnmount() {
-    let el = this.getBody();
-    el.removeEventListener('click', this.handleBodyClick);
-    el.removeEventListener('contextmenu', this.handleBodyClick);
-    el.removeEventListener('mousedown', this.handleBodyClick);
-    el.removeEventListener('mouseup', this.handleBodyClick);
-  }
-
-  getBody() {
-    let source = ReactDOM.findDOMNode(this);
-    while (source.parentNode) {
-      if (source.parentNode) {
-        source = source.parentNode;
-      } else {
-        break;
-      }
-    }
-    return source.body;
+    document.body.removeEventListener('click', this.handleBodyClick);
+    document.body.removeEventListener('contextmenu', this.handleBodyClick);
+    document.body.removeEventListener('mousedown', this.handleBodyClick);
+    document.body.removeEventListener('mouseup', this.handleBodyClick);
   }
 
   /**
