@@ -36,7 +36,8 @@ module.exports = function(grunt) {
       },
 
       externals: {
-        'react': true
+        'react': true,
+        'react-dom': true
       },
 
       stats: {
