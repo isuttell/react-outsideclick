@@ -1,7 +1,7 @@
 # react-outsideclick
 Captures clicks outside of a [React](http://facebook.github.io/react/) component. Exports a commonjs module that can be used with [webpack](http://webpack.github.io/) or [browserify](http://browserify.org/). Source is in ES6 and is compiled down to ES5 using [Babel](https://babeljs.io/).
 
-[![Build Status](http://img.shields.io/travis/ship-components/react-outsideclick/master.svg?style=flat)](https://travis-ci.org/isuttell/react-outsideclick)
+[![Build Status](http://img.shields.io/travis/ship-components/react-outsideclick/master.svg?style=flat)](https://travis-ci.org/ship-components/react-outsideclick)
 
 ## Usage
 
