@@ -13,18 +13,6 @@ export default class OutsideClick extends React.Component {
     this.handleBodyClick = this.handleBodyClick.bind(this);
   }
 
-  getBody() {
-    let source = ReactDOM.findDOMNode(this);
-    while (source.parentNode) {
-      if (source.parentNode) {
-        source = source.parentNode;
-      } else {
-        break;
-      }
-    }
-    return source.body;
-  }
-
   /**
    * Bind to the body so we can check for clicks outside of the component
    */
@@ -57,6 +45,18 @@ export default class OutsideClick extends React.Component {
     el.removeEventListener('contextmenu', this.handleBodyClick);
     el.removeEventListener('mousedown', this.handleBodyClick);
     el.removeEventListener('mouseup', this.handleBodyClick);
+  }
+
+  getBody() {
+    let source = ReactDOM.findDOMNode(this);
+    while (source.parentNode) {
+      if (source.parentNode) {
+        source = source.parentNode;
+      } else {
+        break;
+      }
+    }
+    return source.body;
   }
 
   /**
