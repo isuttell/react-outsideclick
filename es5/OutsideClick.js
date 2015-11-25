@@ -6,7 +6,7 @@
  *  |__|    \___  >____  /\___  >__|            \____/|____/ |__| /____  >__\____ |\___  >\___  >____/__|\___  >__|_ \
  *              \/     \/     \/                                       \/        \/    \/     \/             \/     \/
  * react-outsideclick 0.1.0
- * React component to detect clicks outside of its children
+ * Description: React component to detect clicks outside of its children
  * Author: Isaac Suttell
  * Homepage: https://github.com/isuttell/react-outsideclick#readme
  * Bugs: https://github.com/isuttell/react-outsideclick/issues
@@ -79,6 +79,10 @@ module.exports =
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _reactDom = __webpack_require__(2);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
 	var OutsideClick = (function (_React$Component) {
 	  _inherits(OutsideClick, _React$Component);
 
@@ -109,7 +113,23 @@ module.exports =
 	  _createClass(OutsideClick, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      document.body.addEventListener('click', this.handleBodyClick);
+	      var el = this.getBody();
+
+	      if (this.props.onClick) {
+	        el.addEventListener('click', this.handleBodyClick);
+	      }
+
+	      if (this.props.onContextMenu) {
+	        el.addEventListener('contextmenu', this.handleBodyClick);
+	      }
+
+	      if (this.props.onMouseDown) {
+	        el.addEventListener('mousedown', this.handleBodyClick);
+	      }
+
+	      if (this.props.onMouseUp) {
+	        el.addEventListener('mouseup', this.handleBodyClick);
+	      }
 	    }
 
 	    /**
@@ -118,7 +138,24 @@ module.exports =
 	  }, {
 	    key: 'componentWillUnmount',
 	    value: function componentWillUnmount() {
-	      document.body.removeEventListener('click', this.handleBodyClick);
+	      var el = this.getBody();
+	      el.removeEventListener('click', this.handleBodyClick);
+	      el.removeEventListener('contextmenu', this.handleBodyClick);
+	      el.removeEventListener('mousedown', this.handleBodyClick);
+	      el.removeEventListener('mouseup', this.handleBodyClick);
+	    }
+	  }, {
+	    key: 'getBody',
+	    value: function getBody() {
+	      var source = _reactDom2['default'].findDOMNode(this);
+	      while (source.parentNode) {
+	        if (source.parentNode) {
+	          source = source.parentNode;
+	        } else {
+	          break;
+	        }
+	      }
+	      return source.body;
 	    }
 
 	    /**
@@ -129,7 +166,7 @@ module.exports =
 	    key: 'handleBodyClick',
 	    value: function handleBodyClick(event) {
 	      var source = event.target;
-	      var el = _react2['default'].findDOMNode(this);
+	      var el = _reactDom2['default'].findDOMNode(this);
 
 	      // Search up the tree for the component node
 	      while (source.parentNode) {
@@ -140,7 +177,17 @@ module.exports =
 	        }
 	      }
 
-	      this.props.onClick(event);
+	      if (this.props.onMouseDown) {
+	        this.props.onMouseDown(event);
+	      }
+
+	      if (this.props.onClick) {
+	        this.props.onClick(event);
+	      }
+
+	      if (this.props.onMouseUp) {
+	        this.props.onMouseUp(event);
+	      }
 	    }
 
 	    /**
@@ -153,8 +200,7 @@ module.exports =
 	      return _react2['default'].createElement(
 	        this.props.tag,
 	        {
-	          className: this.props.className
-	        },
+	          className: this.props.className },
 	        this.props.children
 	      );
 	    }
@@ -166,8 +212,7 @@ module.exports =
 	exports['default'] = OutsideClick;
 	OutsideClick.defaultProps = {
 	  tag: 'div',
-	  className: '',
-	  onClick: function onClick() {}
+	  className: ''
 	};
 
 	/**
@@ -178,7 +223,9 @@ module.exports =
 	OutsideClick.propTypes = {
 	  tag: _react2['default'].PropTypes.string,
 	  className: _react2['default'].PropTypes.string,
-	  onClick: _react2['default'].PropTypes.func
+	  onClick: _react2['default'].PropTypes.func,
+	  onMouseDown: _react2['default'].PropTypes.func,
+	  onMouseUp: _react2['default'].PropTypes.func
 	};
 	module.exports = exports['default'];
 
@@ -187,6 +234,12 @@ module.exports =
 /***/ function(module, exports) {
 
 	module.exports = require("react");
+
+/***/ },
+/* 2 */
+/***/ function(module, exports) {
+
+	module.exports = require("react-dom");
 
 /***/ }
 /******/ ]);
