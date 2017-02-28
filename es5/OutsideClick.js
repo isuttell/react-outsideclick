@@ -1,15 +1,15 @@
 /*!
- *                               __                           __         .__    .___            .__  .__        __    
- * _______   ____ _____    _____/  |_            ____  __ ___/  |_  _____|__| __| _/____   ____ |  | |__| ____ |  | __
- * \_  __ \_/ __ \\__  \ _/ ___\   __\  ______  /  _ \|  |  \   __\/  ___/  |/ __ |/ __ \_/ ___\|  | |  |/ ___\|  |/ /
- *  |  | \/\  ___/ / __ \\  \___|  |   /_____/ (  <_> )  |  /|  |  \___ \|  / /_/ \  ___/\  \___|  |_|  \  \___|    < 
- *  |__|    \___  >____  /\___  >__|            \____/|____/ |__| /____  >__\____ |\___  >\___  >____/__|\___  >__|_ \
- *              \/     \/     \/                                       \/        \/    \/     \/             \/     \/
- * react-outsideclick 0.1.0
+ *        .__    .__                                                                          __                                  __         .__    .___            .__  .__        __    
+ *   _____|  |__ |__|_____             ____  ____   _____ ______   ____   ____   ____   _____/  |_  ______           ____  __ ___/  |_  _____|__| __| _/____   ____ |  | |__| ____ |  | __
+ *  /  ___/  |  \|  \____ \   ______ _/ ___\/  _ \ /     \\____ \ /  _ \ /    \_/ __ \ /    \   __\/  ___/  ______  /  _ \|  |  \   __\/  ___/  |/ __ |/ __ \_/ ___\|  | |  |/ ___\|  |/ /
+ *  \___ \|   Y  \  |  |_> > /_____/ \  \__(  <_> )  Y Y  \  |_> >  <_> )   |  \  ___/|   |  \  |  \___ \  /_____/ (  <_> )  |  /|  |  \___ \|  / /_/ \  ___/\  \___|  |_|  \  \___|    < 
+ * /____  >___|  /__|   __/           \___  >____/|__|_|  /   __/ \____/|___|  /\___  >___|  /__| /____  >          \____/|____/ |__| /____  >__\____ |\___  >\___  >____/__|\___  >__|_ \
+ *      \/     \/   |__|                  \/            \/|__|               \/     \/     \/          \/                                  \/        \/    \/     \/             \/     \/
+ * ship-components-outsideclick 0.1.1
  * Description: React component to detect clicks outside of its children
- * Author: Isaac Suttell
- * Homepage: https://github.com/isuttell/react-outsideclick#readme
- * Bugs: https://github.com/isuttell/react-outsideclick/issues
+ * Author: Isaac Suttell <isaac@isaacsuttell.com>
+ * Homepage: https://github.com/ship-components/ship-components-outsideclick#readme
+ * Bugs: https://github.com/ship-components/ship-components-outsideclick/issues
  * License: MIT
  */
 module.exports =
@@ -61,11 +61,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -83,20 +83,18 @@ module.exports =
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var OutsideClick = (function (_React$Component) {
+	var OutsideClick = function (_React$Component) {
 	  _inherits(OutsideClick, _React$Component);
 
 	  /**
 	   * @class OutsideClick keeps track of clicks outside of the component. This is used for Dialogs, select boxes, etc.
 	   * @author Isaac Suttell <isaac@isaacsuttell.com>
 	   */
-
 	  function OutsideClick(props) {
 	    _classCallCheck(this, OutsideClick);
 
 	    // Ensure the right context
-
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(OutsideClick).call(this, props));
+	    var _this = _possibleConstructorReturn(this, (OutsideClick.__proto__ || Object.getPrototypeOf(OutsideClick)).call(this, props));
 
 	    _this.handleBodyClick = _this.handleBodyClick.bind(_this);
 	    return _this;
@@ -105,6 +103,7 @@ module.exports =
 	  /**
 	   * Bind to the body so we can check for clicks outside of the component
 	   */
+
 
 	  _createClass(OutsideClick, [{
 	    key: 'componentDidMount',
@@ -190,13 +189,14 @@ module.exports =
 	  }]);
 
 	  return OutsideClick;
-	})(_react2.default.Component);
+	}(_react2.default.Component);
 
 	/**
 	 * Set some defaults
 	 * @static
 	 * @type    {Object}
 	 */
+
 
 	exports.default = OutsideClick;
 	OutsideClick.defaultProps = {
