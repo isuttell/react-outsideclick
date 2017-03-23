@@ -1,5 +1,5 @@
 {
-  "name" : "react-outsideclick",
+  "name" : "ship-components-outsideclick",
   "description": "ES5 Version of OutsideClick",
   "author" : "Isaac Suttell <isaac@isaacsuttell.com>",
   "main" : "./OutsideClick.js"

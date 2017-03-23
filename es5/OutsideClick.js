@@ -5,7 +5,7 @@
  *  \___ \|   Y  \  |  |_> > /_____/ \  \__(  <_> )  Y Y  \  |_> >  <_> )   |  \  ___/|   |  \  |  \___ \  /_____/ (  <_> )  |  /|  |  \___ \|  / /_/ \  ___/\  \___|  |_|  \  \___|    < 
  * /____  >___|  /__|   __/           \___  >____/|__|_|  /   __/ \____/|___|  /\___  >___|  /__| /____  >          \____/|____/ |__| /____  >__\____ |\___  >\___  >____/__|\___  >__|_ \
  *      \/     \/   |__|                  \/            \/|__|               \/     \/     \/          \/                                  \/        \/    \/     \/             \/     \/
- * ship-components-outsideclick 0.1.1
+ * ship-components-outsideclick 0.2.0
  * Description: React component to detect clicks outside of its children
  * Author: Isaac Suttell <isaac@isaacsuttell.com>
  * Homepage: https://github.com/ship-components/ship-components-outsideclick#readme
