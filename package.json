@@ -1,12 +1,13 @@
 {
   "name": "ship-components-outsideclick",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "React component to detect clicks outside of its children",
   "main": "src/OutsideClick.js",
   "scripts": {
-    "test": "./node_modules/jest-cli/bin/jest.js src/ --coverage",
+    "test": "grunt lint && ./node_modules/jest-cli/bin/jest.js --coverage",
+    "lint": "./node_modules/eslint/bin/eslint.js src/*.jsx",
     "build": "npm test && grunt build",
-    "coverage": "cat coverage/lcov.info | CODACY_PROJECT_TOKEN=6525ee638650493f9dd6597be61a9dc7 ./node_modules/.bin/codacy-coverage && cat coverage/lcov.info | CODECLIMATE_REPO_TOKEN=da1af7666d6cda9a2262599105d14fc0a4f93333e30d963586e9766dd3ffc130 ./node_modules/codeclimate-test-reporter/bin/codeclimate.js"
+    "coverage": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js -v"
   },
   "repository": {
     "type": "git",
@@ -15,21 +16,32 @@
   "keywords": [
     "react"
   ],
-  "author": "Isaac Suttell",
+  "author": "Isaac Suttell <isaac@isaacsuttell.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/ship-components/ship-components-outsideclick/issues"
   },
   "homepage": "https://github.com/ship-components/ship-components-outsideclick#readme",
+  "contributors": [
+    {
+      "name": "Isaac Suttell",
+      "email": "isaac.suttell@sony.com"
+    },
+    {
+      "name": "Sepand Assadi",
+      "email": "sepand.assadi@sony.com"
+    }
+  ],
   "devDependencies": {
     "babel-core": "^6.2.1",
     "babel-eslint": "^4.1.6",
-    "babel-jest": "git+https://github.com/isuttell/babel-jest.git#master",
+    "babel-jest": "^19.0.0",
     "babel-loader": "^6.2.0",
     "babel-preset-es2015": "^6.1.18",
     "babel-preset-react": "^6.1.18",
     "codacy-coverage": "^1.1.3",
-    "codeclimate-test-reporter": "^0.1.1",
+    "codeclimate-test-reporter": "^0.4.1",
+    "coveralls": "^2.12.0",
     "eslint": "^1.2.1",
     "eslint-loader": "^1.0.0",
     "eslint-plugin-react": "^3.2.3",
@@ -38,28 +50,24 @@
     "grunt-cli": "^0.1.13",
     "grunt-eslint": "^17.1.0",
     "grunt-webpack": "^1.0.11",
-    "jest-cli": "^0.8.0",
+    "jest": "^19.0.2",
+    "jest-cli": "^19.0.2",
+    "jest-css-modules": "^1.1.0",
     "jit-grunt": "^0.9.1",
     "package-banner": "^0.1.0",
-    "react": "^0.14.3",
-    "react-addons-test-utils": "^0.14.3",
-    "react-dom": "^0.14.3",
+    "react": ">=15.0.0",
+    "react-addons-test-utils": ">=15.0.0",
+    "react-dom": ">=15.0.0",
     "webpack": "^1.12.1",
     "webpack-dev-server": "^1.10.1"
   },
   "jest": {
-    "scriptPreprocessor": "node_modules/babel-jest",
-    "testFileExtensions": [
-      "es6",
-      "jsx",
-      "js"
-    ],
-    "moduleFileExtensions": [
-      "js",
-      "jsx",
-      "json",
-      "es6"
-    ],
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    },
+    "moduleNameMapper": {
+      "\\.(css)$": "<rootDir>/node_modules/jest-css-modules"
+    },
     "unmockedModulePathPatterns": [
       "<rootDir>/node_modules/classnames",
       "<rootDir>/node_modules/react",

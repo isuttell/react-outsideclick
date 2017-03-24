@@ -1,7 +1,10 @@
-# react-outsideclick
+# ship-components-outsideclick
 Captures clicks outside of a [React](http://facebook.github.io/react/) component. Exports a commonjs module that can be used with [webpack](http://webpack.github.io/) or [browserify](http://browserify.org/). Source is in ES6 and is compiled down to ES5 using [Babel](https://babeljs.io/).
 
-[![Build Status](http://img.shields.io/travis/ship-components/react-outsideclick/master.svg?style=flat)](https://travis-ci.org/ship-components/react-outsideclick)
+[![npm](https://img.shields.io/npm/v/ship-components-outsideclick.svg?maxAge=2592000)](https://www.npmjs.com/package/ship-components-outsideclick)
+[![Build Status](http://img.shields.io/travis/ship-components/ship-components-dropdown-menu/master.svg?style=flat)](https://travis-ci.org/ship-components/ship-components-outsideclick)
+[![Coverage](http://img.shields.io/coveralls/ship-components/ship-components-outsideclick.svg?style=flat)](https://coveralls.io/github/ship-components/ship-components-outsideclick)
+[![devDependencies](https://img.shields.io/david/dev/ship-components/ship-components-outsideclick.svg?style=flat)](https://david-dm.org/ship-components/ship-components-outsideclick?type=dev)
 
 ## Usage
 
@@ -9,7 +12,7 @@ Captures clicks outside of a [React](http://facebook.github.io/react/) component
 The component is written using ES6/JSX therefore Babel is required to directly use it. The below example is based on using [webpack](http://webpack.github.io/) and [babel-loader](https://github.com/babel/babel-loader).
 ```js
 import React from 'react';
-import OutsideClick from 'react-outsideclick';
+import OutsideClick from 'ship-components-outsideclick';
 
 export default class Dialog extends React.Component {
   render() {
@@ -38,7 +41,7 @@ A version compiled down to es5 can be found in the `es5/` folder. This can be di
 
 ```js
 var React = require('react');
-var OutsideClick = require('react-outsideclick/es5');
+var OutsideClick = require('ship-components-outsideclick/es5');
 
 var Dialog = React.createClass({
   render: function() {
@@ -62,10 +65,14 @@ var Dialog = React.createClass({
 1. `npm install`
 2. `npm test`
 
+## History
+* 0.2.0 - Upgrades to React 15, Adds Travis CI, coverage and ESLint rule
+* 0.1.1 - Initial
+
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2015 Isaac Suttell
+Copyright (c) 2017 Isaac Suttell
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
