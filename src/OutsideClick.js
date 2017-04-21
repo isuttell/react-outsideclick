@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 
 export default class OutsideClick extends React.Component {
   /**
@@ -104,9 +105,9 @@ OutsideClick.defaultProps = {
  * @type    {Object}
  */
 OutsideClick.propTypes = {
-  tag: React.PropTypes.string,
-  className: React.PropTypes.string,
-  onClick: React.PropTypes.func,
-  onMouseDown: React.PropTypes.func,
-  onMouseUp: React.PropTypes.func
+  tag: PropTypes.string,
+  className: PropTypes.string,
+  onClick: PropTypes.func,
+  onMouseDown: PropTypes.func,
+  onMouseUp: PropTypes.func
 };
