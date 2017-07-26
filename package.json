@@ -55,6 +55,7 @@
     "jest-css-modules": "^1.1.0",
     "jit-grunt": "^0.9.1",
     "package-banner": "^0.1.0",
+    "prop-types": "^15.5.8",
     "react": ">=15.0.0",
     "react-addons-test-utils": ">=15.0.0",
     "react-dom": ">=15.0.0",
@@ -80,8 +81,5 @@
     "include": [
       "src/**/*.@(js|jsx|es6)"
     ]
-  },
-  "dependencies": {
-    "prop-types": "^15.5.8"
   }
 }
