@@ -66,6 +66,7 @@ var Dialog = React.createClass({
 2. `npm test`
 
 ## History
+* 0.3.0 - Updates to the latest babel configurations (babel-preset-env).
 * 0.2.0 - Upgrades to React 15, Adds Travis CI, coverage and ESLint rule
 * 0.1.1 - Initial
 

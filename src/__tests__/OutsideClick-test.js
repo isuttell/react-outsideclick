@@ -1,9 +1,8 @@
-jest.dontMock('../OutsideClick');
-
 import React from 'react';
 import ReactDOM from 'react-dom';
+import TestUtils from 'react-dom/test-utils';
+
 const OutsideClick = require('../OutsideClick').default;
-import TestUtils from 'react-addons-test-utils';
 
 describe('OutsideClick', function() {
   it('should assign a css class', function() {
@@ -45,11 +44,11 @@ describe('OutsideClick', function() {
 
     // Render a checkbox with label in the document
     let reactTree = TestUtils.renderIntoDocument(
-      <div className='outside'>
+      <div className="outside">
         <OutsideClick
           onClick={onClick}
         >
-          <div className='inside'>
+          <div className="inside">
             Hello world
           </div>
         </OutsideClick>
