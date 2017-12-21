@@ -82,7 +82,8 @@ export default class OutsideClick extends React.Component {
   render() {
     return (
       <this.props.tag
-        className={this.props.className} >
+        className={this.props.className}
+      >
         {this.props.children}
       </this.props.tag>
     );
