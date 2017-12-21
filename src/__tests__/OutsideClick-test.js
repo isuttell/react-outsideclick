@@ -44,11 +44,11 @@ describe('OutsideClick', function() {
 
     // Render a checkbox with label in the document
     let reactTree = TestUtils.renderIntoDocument(
-      <div className="outside">
+      <div className='outside'>
         <OutsideClick
           onClick={onClick}
         >
-          <div className="inside">
+          <div className='inside'>
             Hello world
           </div>
         </OutsideClick>
