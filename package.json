@@ -7,7 +7,8 @@
     "test": "grunt lint && ./node_modules/jest-cli/bin/jest.js --coverage",
     "lint": "./node_modules/eslint/bin/eslint.js src/*.jsx",
     "build": "npm test && grunt build",
-    "coverage": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js -v"
+    "coverage": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js -v",
+    "travis": "npm install --no-save trevor && trevor"
   },
   "repository": {
     "type": "git",
