@@ -3,7 +3,8 @@ jest.dontMock('../OutsideClick');
 import React from 'react';
 import ReactDOM from 'react-dom';
 const OutsideClick = require('../OutsideClick').default;
-import TestUtils from 'react-addons-test-utils';
+import TestUtils from 'react-dom/test-utils';
+
 
 describe('OutsideClick', function() {
   it('should assign a css class', function() {
